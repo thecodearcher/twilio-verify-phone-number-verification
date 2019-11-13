@@ -1,6 +1,8 @@
 ## Verifying users phone numbers in a Laravel application with Twilio verify
 
-In this tutorial, we will look at how to verify users phone number using Twilio Verify by building  a simple authentication system in Laravel. Twilio verify makes it easier to verify user’s phone number to ensure it is a valid phone number by sending SMS short code to the number during registration. This can help reduce fake accounts and failure rate when sending SMS notifications to users.
+In this tutorial, we will look at how to verify users phone number using Twilio Verify by building  a simple authentication system in Laravel.
+
+[Twilio Verify](https://www.twilio.com/verify) makes it easier to verify user’s phone number to ensure it is a valid phone number by sending SMS short code to the number during registration. This can help reduce fake accounts and failure rate when sending SMS notifications to users.
 
 ## Prerequisite
 
