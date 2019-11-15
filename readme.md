@@ -104,10 +104,10 @@ At this point, we have successfully set up our Laravel project with Twilio SDK a
 The above command will generate a controller class file in `app/Http/Controllers/AuthController.php`.
 
 ### Registering Users
-Now let’s get down to implementing our first authentication logic. We will start off by implementing the registration logic. 
-Let’s for a moment assume we are going to send out SMS notifications to registered users later on from our application, we will need to ensure their phone numbers stored in our database is correct. And there’s no better place to enforce this validation than at the point of registration. To accomplish this, we will make use of [Twilio Verify](https://www.twilio.com/verify) to check if the phone number entered by our user is a valid phone number. 
+It's now time to implement your authentication logic. You will implement the registration logic first. 
+Let’s assume that you are going to be sending out SMS notifications to registered users from your application. You will need to ensure that the phone numbers stored in your database are correct. There’s no better place to enforce this validation than at the point of registration. To accomplish this, you will make use of [Twilio Verify](https://www.twilio.com/verify) to check if the phone number entered by your user is a valid phone number. 
 
-Let’s get started, now open up `app/Http/Controllers/AuthController.php` and add the following method:
+Open up `app/Http/Controllers/AuthController.php` and add the following method:
 
      /**
          * Create a new user instance after a valid registration.
@@ -137,15 +137,14 @@ Let’s get started, now open up `app/Http/Controllers/AuthController.php` and a
             ]);
             return redirect()->route('verify')->with(['phone_number' => $data['phone_number']]);
         }
-    
 
-Let’s take a closer look at the code above. After validating the data coming into our function via the `$request` property, we retrieve our Twilio credentials stored in the `.env` file using the built-in PHP [getenv()](http://php.net/manual/en/function.getenv.php) function and pass it into the Twilio Client to create a new instance. After which, we access the `verify` service from the instance of the Twilio client using:
+Take a closer look at the code above. After validating the data coming in via the `$request` property, your Twilio credentials stored in the `.env` file are retrieved using the built-in PHP [getenv()](http://php.net/manual/en/function.getenv.php) function. They are then passed into the Twilio Client to create a new instance. After which, your `verify` service is accessed from the instance the Twilio client using:
 
     $twilio->verify->v2->services($twilio_verify_sid)
                 ->verifications
                 ->create($data['phone_number'], "sms");
 
-We also pass in our Twilio Verify service `sid` to the `service` which allows us access the Twilio Verify service we created earlier in this tutorial.  Next we call the `->verifications->create()` method passing in the phone number to be verified and a channel for delivery the OTP which can be either  `mail`, `sms` or `call`. We are currently making use of the `sms` channel which means we want our OTP code sent to the user via SMS. Next we store our user’s data in the database using the [Eloquent](https://laravel.com/docs/6.x/eloquent) [`create`](https://laravel.com/docs/6.x/eloquent#mass-assignment) method:
+The Twilio Verify service `sid` was also passed to the `service` which allows access to the Twilio Verify service you created earlier in this tutorial. Next you called the `->verifications->create()` method by passing in the phone number to be verified and a channel for delivery. The OTP can be either `mail`, `sms` or `call`. You are currently making use of the `sms` channel which means your OTP code will be sent to the user via SMS. Next, the user’s data is stored in the database using the [Eloquent](https://laravel.com/docs/6.x/eloquent) [`create`](https://laravel.com/docs/6.x/eloquent#mass-assignment) method:
 
     User::create([
                 'name' => $data['name'],
@@ -153,7 +152,7 @@ We also pass in our Twilio Verify service `sid` to the `service` which allows us
                 'password' => Hash::make($data['password']),
             ]);
 
-After that we redirect the user to a `verify` page sending their `phone_number`  as data for the view.
+After that the user is redirected to a `verify` page sending their `phone_number` as data for the view.
 
 ### Verifying Phone number OTP
 After successful registration of our user, we need to create a way for verifying the OTP sent to them via our `channel` of choice. Let’s create our `verify` method which will be used to verify the users phone number against OTP code entered in your form. Open `app/Http/Controllers/AuthController.php`  and add the following method:
