@@ -11,7 +11,7 @@ In order to follow this tutorial, you will need:
 - Basic knowledge of Laravel
 - [Laravel](https://laravel.com/docs/master) Installed on your local machine
 - [Composer](https://getcomposer.org/) globally installed
-- [Twilio Account](https://www.twilio.com/try-twilio)
+- [Twilio Account](https://www.twilio.com/referral/5PFGwv)
 
 ## Getting started
 
