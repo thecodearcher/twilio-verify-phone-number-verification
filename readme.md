@@ -59,9 +59,9 @@ Update your environmental variables with your database credentials. Open up `.en
     DB_PASSWORD={password if any}
 
 ### Updating User Migration and Model
-We have successfully create our database, now  let’s update our `user` [migrations](https://laravel.com/docs/6.x/migrations).  By default Laravel creates a `user` migration and [Model](https://laravel.com/docs/6.x/eloquent) for us when we generate a new project. So we will have to make adjustments to these files to fit our needs.
+Now that your database is successfully set up, update your `user` [migrations](https://laravel.com/docs/6.x/migrations) to create the necessary columns for your users. By default Laravel creates a `user` migration and [Model](https://laravel.com/docs/6.x/eloquent) when a new project is generated. Only a few adjustments will be needed to fit the needs of this tutorial.
 
-Now, open up the project folder in your favourite IDE/text editor so we can make changes as needed. Let’s start from updating the needed fields in our User table. Open up the users migration file ( `database/migrations/2014_10_12_000000_create_users_table.php`) and make the following adjustments to the `up()` method:
+Open up the project folder in your favourite IDE/text editor to start updating the needed fields in the *users* table. Open up the *users* migration file (`database/migrations/2014_10_12_000000_create_users_table.php`) and make the following adjustments to the `up()` method:
 
        public function up()
         {
@@ -76,13 +76,15 @@ Now, open up the project folder in your favourite IDE/text editor so we can make
             });
         }
 
-We added the `phone_number` and `isVerified` fields for storing user’s phone number and checking is the phone number has been verified respectively.
-Now we have added the needed fields for our application, let’s run our migration. Run the following command in the project directory root to add this table to our database:
+The `phone_number` and `isVerified` fields were added for storing a user’s phone number and checking whether the phone number has been verified respectively.
+
+Run the following command in the project directory root to add this table to your database:
 
     $ php artisan migrate
 
-If the file get migrated successfully, we will see the file name (`{time_stamp}_create_users_table`) printed out in the terminal.
-Next, let’s update the `[fillable](https://laravel.com/docs/6.x/eloquent#mass-assignment)` properties of the User model to include the `phone_number` and `isVerified` fields. Open up `app/User.php` and make the following changes to the `$fillable` array:
+If the file get migrated successfully, you will see the file name (`{time_stamp}_create_users_table`) printed out in the console window.
+
+Now update the `[fillable](https://laravel.com/docs/6.x/eloquent#mass-assignment)` properties of the *User* model to include the `phone_number` and `isVerified` fields. Open up `app/User.php` and make the following changes to the `$fillable` array:
 
      /**
          * The attributes that are mass assignable.
