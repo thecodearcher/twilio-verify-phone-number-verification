@@ -15,7 +15,7 @@ In order to follow this tutorial, you will need:
 
 ## Getting started
 
-We will start off by creating a new Laravel project using the [Laravel Installer](https://laravel.com/docs/5.8#installation). If you don’t have it installed or prefer to use [Composer](https://laravel.com/docs/6.x/installation), you can check how to do so from the [Laravel documentation](https://laravel.com/docs/master). To generate a fresh Laravel project, run this command in your terminal:
+Create a new Laravel project using the [Laravel Installer](https://laravel.com/docs/5.8#installation). If you don’t have it installed or prefer to use [Composer](https://laravel.com/docs/6.x/installation), you can check how to do so from the [Laravel documentation](https://laravel.com/docs/master). Run this command in your console window to generate a fresh Laravel project:
 
     $ laravel new twilio-phone-verify  
 
@@ -24,18 +24,17 @@ Now change your working directory to `twilio-phone-verify` and install the [Twil
     $ cd twilio-phone-verify
     $ composer require twilio/sdk 
 
-If you don’t have Composer installed on your composer you can do so by following the instructions [here](https://getcomposer.org/doc/00-intro.md).
-Next, we need to get our Twilio credentials from the Twilio dashboard. Head over to your [dashboard](https://www.twilio.com/console) and grab your `account_sid` and `auth_token`.
+If you don’t have Composer installed on your computer you can do so by following the instructions [here](https://getcomposer.org/doc/00-intro.md).
+
+You will need your Twilio credentials from the Twilio dashboard to complete the next step. Head over to your [dashboard](https://www.twilio.com/console) and grab your `account_sid` and `auth_token`.
 
 ![](https://paper-attachments.dropbox.com/s_F2A8B2F68E4E7251C0E01BC69920BEB8CE8E4B362D8D4BA952FACA12F8136664_1573635422612_Group+8.png)
 
-
-Now navigate to the [Verify](https://www.twilio.com/console/verify) section to create a new [Twilio Verify Service](https://www.twilio.com/console/verify/services). Take note of the `sid`  generated for you after creating the Verify service as this will be used for authenticating the instance of the verify sdk. 
+Navigate to the [Verify](https://www.twilio.com/console/verify) section to create a new [Twilio Verify Service](https://www.twilio.com/console/verify/services). Take note of the `sid` generated for you after creating the Verify service as this will be used for authenticating the instance of the Verify sdk. 
 
 ![](https://paper-attachments.dropbox.com/s_F2A8B2F68E4E7251C0E01BC69920BEB8CE8E4B362D8D4BA952FACA12F8136664_1573635718713_Group+10.png)
 
-
-Next we need to update the `.env` file with our Twilio credentials.  Open up `.env` located at the root of the project directory and add these values:
+Update the `.env` file with your Twilio credentials. Open up `.env` located at the root of the project directory and add these values:
 
     TWILIO_SID="INSERT YOUR TWILIO SID HERE"
     TWILIO_AUTH_TOKEN="INSERT YOUR TWILIO TOKEN HERE"
