@@ -98,7 +98,7 @@ Now update the `[fillable](https://laravel.com/docs/6.x/eloquent#mass-assignment
 
 ## Implementing Authentication Logic
 
-At this point, we have successfully set up our Laravel project with Twilio SDK and also created our database. Now let’s write out our logic for authenticating a user. We will start off by generating a `AuthController`  which will house all needed logic for each authentication step. Open up a terminal in the project root directory and run the following command to generate a [Controller](https://laravel.com/docs/6.x/controllers):
+At this point, you have successfully set up your Laravel project with the Twilio PHP SDK and created your database. Next you'll write out our logic for authenticating a user. First, generate an `AuthController` which will house all needed logic for each authentication step. Open up a new console window in the project root directory and run the following command to generate a [Controller](https://laravel.com/docs/6.x/controllers):
 
     $ php artisan make:controller AuthController
 
