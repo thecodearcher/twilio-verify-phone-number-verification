@@ -157,7 +157,7 @@ We also pass in our Twilio Verify service `sid` to the `service` which allows us
 After that we redirect the user to a `verify` page sending their `phone_number`  as data for the view.
 
 ### Verifying Phone number OTP
-After successful registration of our user, we need to create a way for verifying the OTP sent to them via our `channel` of choice. Let’s create our `verify` method which will be used to verify the users phone number against OTP code entered in your form. Open `app/Http/Controllers/AuthController.php`  and add the following method:
+After successful registration of our user, you will need to create a way for verifying the OTP sent to them via your `channel` of choice. Create a `verify` method which will be used to verify the users phone number against the OTP code entered in your form. Open `app/Http/Controllers/AuthController.php` and add the following method:
 
       protected function verify(Request $request)
         {
@@ -182,18 +182,18 @@ After successful registration of our user, we need to create a way for verifying
             return back()->with(['phone_number' => $data['phone_number'], 'error' => 'Invalid verification code entered!']);
         }
 
-Just like in the `register()` method, we first validate the data gotten from the request and also instantiate the Twilio SDK with our credentials before accessing the `verify` service. Let’s take a look at the important aspect here:
+Just like in the `register()` method, the data above is retrieved from the request and also instantiates the Twilio SDK with your credentials before accessing the `verify` service. Let’s take a look at how this is structured:
 
     $verification = $twilio->verify->v2->services($twilio_verify_sid)
                 ->verificationChecks
                 ->create($data['verification_code'], array('to' => $data['phone_number']));
 
-From the above you can tell we are accessing the Twilio verify service as we did earlier but this time we are making use of another method available to us via the service:
+From the above you can tell that you are accessing the Twilio Verify service as earlier, but this time you are making use of another method made available via the service:
 
     ->verificationChecks->create($data['verification_code'], array('to' => $data['phone_number']));
 
 The `create()` function takes in two parameters, a `string` of the `OTP` code sent to the user and an `array` with a `to` property whose value is the user’s phone number which the OTP was sent to.
-The `verificationChecks->create()` returns an object which contains several properties including a boolean property `valid` which is either `true` or `false` depending if the OTP entered is valid or not:
+The `verificationChecks->create()` method returns an object which contains several properties including a boolean property `valid`, which is either `true` or `false` depending if the OTP entered is valid or not:
 
     if ($verification->valid) {
                 $user = tap(User::where('phone_number', $data['phone_number']))->update(['isVerified' => true]);
@@ -203,11 +203,11 @@ The `verificationChecks->create()` returns an object which contains several prop
             }
             return back()->with(['phone_number' => $data['phone_number'], 'error' => 'Invalid verification code entered!']);
 
- Next we check if the `valid` property is true and then proceed to update the `isVerified` field of the user to `true`.  We then proceed  to [manually authenticate](https://laravel.com/docs/6.x/authentication#other-authentication-methods) the user using Laravel’s `Auth::login`  method which will login and remember the given `User` model instance.
+Next the code checks to see if the `valid` property is true and then procees to update the `isVerified` field of the user to `true`.  The application then proceeds to [manually authenticate](https://laravel.com/docs/6.x/authentication#other-authentication-methods) the user using Laravel’s `Auth::login` method which will login and remember the given `User` model instance.
  
  **Note:** *The `User` model must implement the `Authenticatable` interface before it can be used with the Laravel `Auth::login` method.*
 
-After successful verification of the user, we then redirect them to the application dashboard.
+After successful verification of the user, they are redirected to the application dashboard.
 
 
 ## Building The Views
