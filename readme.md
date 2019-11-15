@@ -42,7 +42,7 @@ Next we need to update the `.env` file with our Twilio credentials.  Open up `.e
     TWILIO_VERIFY_SID="INSERT YOUR TWILIO SYNC SERVICE SID"
 
 ### Setting up Database
-Next let’s set up our database for our application. We will make use of [MySQL](https://www.mysql.com/) database for our application.  If you use a MySQL client like [phpMyAdmin](https://www.phpmyadmin.net/) to manage your database then go ahead and create a database named `phone-verify` and skip this section if not then install MySQL from the [official site](https://www.mysql.com/downloads/) for your platform of choice. After successful installation, fire up your terminal and run this command to login to MySQL:
+This tutorial will require a [MySQL](https://www.mysql.com/) database for your application. If you use a MySQL client like [phpMyAdmin](https://www.phpmyadmin.net/) to manage your databases, then go ahead and create a database named `phone-verify` and skip this section. If not, install MySQL from the [official site](https://www.mysql.com/downloads/) for your platform of choice. After successful installation, fire up your terminal and run this command to login to MySQL:
 
     $ mysql -u {your_user_name}
 
@@ -53,7 +53,7 @@ Once you are logged in, run the following command to create a new database
     mysql> create database phone-verify;
     mysql> exit;
 
-Next, let’s update our environmental variables with our database credentials. Open up `.env`  and make the following adjustments:
+Update your environmental variables with your database credentials. Open up `.env` and make the following adjustments:
 
     DB_DATABASE=phone-verify
     DB_USERNAME={your_user_name}
