@@ -414,7 +414,7 @@ Lastly, create a page where verified users will be taken to by creating a file c
 
 ## Updating Our Routes
 
-Awesome now we are done with our view let’s update our `routes/web.php` file with the needed routes for our application. Open up `routes/web.php` and make the following changes:
+Awesome! Now that you have completed creating the view, let’s update your `routes/web.php` file with the needed routes for your application. Open up `routes/web.php` and make the following changes:
 
     <?php
     /*
