@@ -446,7 +446,7 @@ Awesome now we are done with our view let’s update our `routes/web.php` file w
 
 ## Testing Our Application
 
-Awesome! we are done with building our application, now let’s actually test it out. Open up your terminal and navigate to the project directory and run the following command
+Now that you are done with building the application, let’s test it out. Open up your console window and navigate to the project directory and run the following command:
 
     $ php artisan serve
 
@@ -454,8 +454,7 @@ This will serve your Laravel application on a localhost port, normally `8000`. O
 
 ![](https://paper-attachments.dropbox.com/s_F2A8B2F68E4E7251C0E01BC69920BEB8CE8E4B362D8D4BA952FACA12F8136664_1573634680020_Screenshot+from+2019-11-13+09-44-21.png)
 
-
-Now, go ahead and fill out the form after submitting the form you will be sent a OTP code which you are to use in filling the form in the page you were redirected to. 
+Fill out the registration form to trigger a OTP code to be sent. You will use this code in filling out the form in the page you were redirected to. 
 
 ![](https://paper-attachments.dropbox.com/s_F2A8B2F68E4E7251C0E01BC69920BEB8CE8E4B362D8D4BA952FACA12F8136664_1573634963714_Peek+2019-11-13+09-48.gif)
 
