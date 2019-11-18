@@ -461,10 +461,10 @@ Now, go ahead and fill out the form after submitting the form you will be sent a
 
 ## Conclusion
 
-Great! Now you have completed this tutorial, you have learnt how to make use of Twilio Verify Service for validating phone number(s) in a Laravel application. Also, we learnt how to manually authenticate a user in a Laravel application.
-If you would like to take a look at the complete source code for this tutorial, you can find both the complete source code  on [Github](https://github.com/thecodearcher/twilio-verify-phone-number-verification).
+Great! By completing this tutorial, you have learned how to make use of Twilio's Verify Service for validating phone number(s) in a Laravel application. Also, we learned how to manually authenticate a user in a Laravel application.
+If you would like to take a look at the complete source code for this tutorial, you can find ig on [Github](https://github.com/thecodearcher/twilio-verify-phone-number-verification).
 
-I’d love to answer any question(s) you might have concerning this tutorial. You can reach me via
+I’d love to answer any question(s) you might have concerning this tutorial. You can reach me via:
 
 - Email: [brian.iyoha@gmail.com](mailto:brian.iyoha@gmail.com)
 - Twitter: [thecodearcher](https://twitter.com/thecodearcher)
