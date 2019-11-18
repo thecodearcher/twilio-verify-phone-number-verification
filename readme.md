@@ -211,7 +211,7 @@ After successful verification of the user, they are redirected to the applicatio
 
 ## Building The Views
 
-At this point, we have successfully written out our logic for registering and verifying a user. Now let’s build our view which the user will use to interact with our application. First let’s create a [layout](https://laravel.com/docs/6.x/blade#defining-a-layout) which will serve as the main layout of our application. Create a folder named `layouts`  in `resources/views/`, next create a file named `app.blade.php`  in the `layouts` folder. Now open up the just created file (`resources/views/layouts/app.blade.php`) and add the following:
+All logic for registering and verifying a user has been written. Now let’s build the view that the user will use to interact with your application. A [layout](https://laravel.com/docs/6.x/blade#defining-a-layout) serving as the main interface of your application will be needed. Create a folder named `layouts` in `resources/views/`. Next create a file named `app.blade.php` in the `layouts` folder. Now open up the newly created file (`resources/views/layouts/app.blade.php`) and add the following:
 
     <!doctype html>
     <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -269,9 +269,9 @@ At this point, we have successfully written out our logic for registering and ve
     </html>
     
 
-***Note:** We are making use of bootstrap for styling our application and forms.*
+***Note:** To expedite the creation of this application, Bootstrap is being utilized for styling your application and forms.*
 
-Next create a folder called `auth` in `resources/views/` now create the following files and paste in their respective content also. In `resources/views/auth/register.blade.php`: 
+Next create a folder called `auth` in `resources/views/`. Now create the following files and paste in their respective content. In `resources/views/auth/register.blade.php`: 
 
     @extends('layouts.app')
     @section('content')
@@ -387,7 +387,7 @@ and now in `resources/views/auth/verify.blade.php`:
     @endsection
     
 
-Lastly, let’s also create a page where verified users will be taken to. Create a file called `home.blade.php` in `resources/views/` and add in the following content (`resources/views/home.blade.php`):
+Lastly, create a page where verified users will be taken to by creating a file called `home.blade.php` in `resources/views/`. Add the following content (`resources/views/home.blade.php`):
 
     @extends('layouts.app')
     @section('content')
